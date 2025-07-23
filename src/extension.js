@@ -10,6 +10,16 @@ const Display = global.display;
 
 export default class FullscreenAvoider extends Extension {
 	get_unfullscreen_monitor() {
+		if (!LM.primaryMonitor.inFullscreen) {
+			return LM.primaryMonitor;
+		}
+		let i = this._settings.get_int('preferred-monitor');
+		i = 3;
+		let monitor = LM.monitors[i - 1];
+		if (!monitor.inFullscreen) {
+			return monitor;
+		}
+
 		for (const monitor of LM.monitors) {
 			if (!monitor.inFullscreen) {
 				return monitor;

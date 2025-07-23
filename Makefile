@@ -10,6 +10,8 @@ clean:
 build: clean
 	mkdir -p $(BUILDDIR)
 	cp -r $(SRCDIR) $(BUILDDIR)/$(UUID)
+	glib-compile-schemas $(BUILDDIR)/$(UUID)/schemas
+	cp -r $(BUILDDIR)/$(UUID) ~/.local/share/gnome-shell/extensions
 
 zip: build
 	cd $(BUILDDIR)/$(UUID) && zip -r $(UUID).zip * && mv $(UUID).zip ../

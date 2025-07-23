@@ -10,5 +10,11 @@
       <summary>Move Notifications</summary>
       <description>Move Notifications</description>
     </key>
+    <key name="preferred-monitor" type="i">
+      <default>0</default>
+      <summary>Preferred Monitor</summary>
+      <description>Preferred Monitor</description>
+    </key>
+
   </schema>
 </schemalist>
